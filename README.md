@@ -1,6 +1,8 @@
 # workspace
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.6.0.
+1. This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.6.0.
+
+2. This is just another mediocre chat app, building this just for learning Socket.io and getting familiar with AngularJS even more.
 
 ## Getting Started
 
@@ -27,6 +29,13 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 Run `grunt build` for building and `grunt serve` for preview.
 
-## Testing
+## UI Styling
 
-Running `npm test` will run the unit tests with karma.
+1. Using Materialize (http://materializecss.com/), for most of grid/css Styling
+
+Note: Need to change it to use https://www.npmjs.com/package/angular2-materialize, currently initialising Materialize component is done by using JQuery (bad one, I know)
+
+## Test account
+
+1. admin/admin
+2. testuser/test
