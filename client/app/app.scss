@@ -1,0 +1,125 @@
+$fa-font-path: "../bower_components/font-awesome/fonts";
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+$themeColor: #AB0101;
+$noteColor: #ef5350;
+$subTextColor: #e0e0e0;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-radius-top($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  -moz-border-radius-topright: $radius;
+  -moz-border-radius-topleft: $radius;
+}
+
+@mixin border-radius-bottom($radius) {
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  -moz-border-radius-bottomright: $radius;
+  -moz-border-radius-bottomleft: $radius;
+}
+
+@mixin border-radius-left($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  -moz-border-radius-bottomleft: $radius;
+  -moz-border-radius-topleft: $radius;
+}
+
+@mixin border-radius-right($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  -moz-border-radius-bottomright: $radius;
+  -moz-border-radius-topright: $radius;
+}
+
+html, body
+{
+  height: 100%;
+}
+
+
+.backdrop{
+ background-color: rgba(55,71,79,0.8);
+}
+
+.material-tooltip
+{
+  color: #fff;
+  padding: 5px;
+  min-height: 20px;
+  font-size: 11px;
+  line-height: 20px;
+}
+
+.note
+{
+  font-size: 12px;
+  color: $noteColor;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+// Component styles are injected through grunt
+/* inject:scss */
+@import 'admin/admin.scss';
+@import 'chatRoom/chatRoom.scss';
+@import 'main/main.scss';
+@import '../components/chatRelated/contactsList.scss';
+@import '../components/chatRelated/messageConsole.scss';
+@import '../components/footer/footer.scss';
+@import '../components/forms/loginForm.scss';
+@import '../components/forms/signupForm.scss';
+/* endinject */
+
+.notification{
+  width: 24px !important;
+  height: 24px !important;
+  position: absolute !important;
+  top: 3px;
+  right: 10px;
+  line-height: 30px;
+
+  background-color: #FFA728 !important;
+
+  i{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 16px !important;
+    font-weight: bolder;
+    color: #fff;
+  }
+}

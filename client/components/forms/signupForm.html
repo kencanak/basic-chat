@@ -1,0 +1,48 @@
+<form class="col s12 signup-form" name="signup" ng-submit="signupForm.register(signup)">
+  <h5>Sign-Up</h5>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">assignment_ind</i>
+      <input id="icon_prefix" name="name" ng-model="signupForm.user.name" type="text" class="validate" required>
+      <label for="icon_prefix">Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input id="icon_prefix" name="userName" type="text" ng-model="signupForm.user.userName" class="validate" required>
+      <label for="icon_prefix">User Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">vpn_key</i>
+      <input id="icon_password" name="password" type="password" ng-model="signupForm.user.password" class="validate" required>
+      <label for="icon_password">Password</label>
+    </div>
+  </div>
+  <div class="row notes">
+    <div class="form-group has-error col s12">
+      <p class="note" ng-show="form.name.$error.required && signupForm.submitted">
+        Please enter valid name
+      </p>
+      <p class="note" ng-show="form.userName.$error.required && signupForm.submitted">
+        What's your user name?
+      </p>
+      <p class="note" ng-show="signupForm.errors.userName">
+        {{ signupForm.errors.userName }}
+      </p>
+      <p class="note"
+         ng-show="(form.password.$error.minlength || form.password.$error.required) && signupForm.submitted">
+        Password must be at least 3 characters.
+      </p>
+      <p class="note" ng-show="form.password.$error.mongoose">
+        {{ signupForm.errors.password }}
+      </p>
+      <p class="note">{{ signupForm.errors.other }}</p>
+    </div>
+  </div>
+  <div class="row right">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Sign-Up</button>
+  </div>
+</form>

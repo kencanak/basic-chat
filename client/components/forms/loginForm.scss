@@ -1,0 +1,23 @@
+.login-form
+{
+  border-right: 1px dotted $themeColor;
+
+  .btn
+  {
+    margin-right: 10px;
+  }
+  .row
+  {
+    height: 58px;
+
+    &:last-child
+    {
+      height: 30px;
+    }
+
+    &.notes
+    {
+      height: 30px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+#banner h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: #4d4d4d;
+}
+
+.chat-logo
+{
+  background: #4d4d4d;
+  color: #fff;
+  font-size: 28px;
+  width: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 0px 15px 30px;
+  color: #AB0101;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  //background: #4393B9;
+  border-top: 1px solid #FAF6F6;
+  border-bottom: 1px dotted $themeColor;
+  background: #FAF6F6;
+}
+
+.login-form
+{
+  border-right: 1px dotted $themeColor;
+
+  .btn
+  {
+    margin-right: 10px;
+  }
+}
+
+.login-form, .signup-form
+{
+  .row
+  {
+    height: 58px;
+
+    &:last-child
+    {
+      height: 30px;
+    }
+  }
+}
+
+.navbar-text {
+  margin-left: 15px;
+}

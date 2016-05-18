@@ -1,0 +1,21 @@
+.signup-form
+{
+  .btn
+  {
+    margin-right: 10px;
+  }
+  .row
+  {
+    height: 58px;
+
+    &:last-child
+    {
+      height: 30px;
+    }
+    
+    &.notes
+    {
+      height: 30px;
+    }
+  }
+}

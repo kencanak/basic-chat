@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../client/app/admin/admin.module.js"],"names":[],"mappings":"AAAA;;AAEA,QAAQ,MAAR,CAAe,eAAf,EAAgC,CAC9B,cAD8B,EAE9B,WAF8B,CAAhC","file":"admin.module.js","sourcesContent":["'use strict';\n\nangular.module('chatApp.admin', [\n  'chatApp.auth',\n  'ui.router'\n]);\n"]}

@@ -1,0 +1,114 @@
+
+<div class="row contactsList">
+  <div class="col s12">
+    <!--search panel-->
+    <div class="row">
+      <div class="col s12">
+        <a class="btn-floating teal darken-1 add-user modal-trigger tooltipped" href="#addContactModal" data-delay="10" data-tooltip="Add Contact" data-position="right"><i class="material-icons">person_add</i></a>
+        <!-- Modal Structure -->
+        <div id="addContactModal" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <h5>Add Contact(s)</h5>
+
+            <div class="row">
+              <div class="col s12">
+                <div class="input-field">
+                  <i class="material-icons prefix">search</i>
+                  <input id="search" name="search" ng-model="contactsList.keyword" ng-change="contactsList.searchContacts()" required>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 search-res">
+                <table class="striped">
+                 <thead>
+                   <tr>
+                       <th data-field="userName">User Name</th>
+                       <th data-field="name">Name</th>
+                       <th data-field="add"></th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr ng-show="contactsList.getLength(contactsList.searchRes) === 0">
+                      <td colspan="3"><span class="note">Search not found...</span></td>
+                   </tr>
+                   <tr ng-repeat="contact in contactsList.searchRes">
+                     <td>
+                       {{contact.userName}}
+                     </td>
+                     <td>
+                       {{contact.name}}
+                     </td>
+                     <td>
+                       <a class="btn-floating teal darken-1 add-user tooltipped" data-delay="10"
+                       data-tooltip="Add Contact" data-position="right"
+                       ng-click="contactsList.addContacts(contact.userName)"
+                       ng-class="contactsList.currentUserContacts.indexOf(contact.userName) > -1
+                       ? 'disabled': ''">
+                         <i class="material-icons">person_add</i>
+                       </a>
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+              </div>
+              <div class="row right" ng-show="contactsList.getLength(contactsList.searchRes) > 0">
+                 <p class="note">{{contactsList.searchResTotal}} record(s) found...</p>
+              </div>
+              <div class="row center pagination-container">
+                <ul class="pagination" ng-show="contactsList.getLength(contactsList.searchRes) > 0">
+                   <li class="waves-effect" ng-class="contactsList.currentPage === 1 ? 'disabled' :
+                   ''">
+                     <a href="#!">
+                       <i class="material-icons"
+                       ng-click="contactsList.changePage(contactsList.currentPage -
+                       1)">chevron_left</i>
+                     </a>
+                   </li>
+                   <li class="waves-effect" ng-click="contactsList.changePage(x)"
+                   ng-class="contactsList.currentPage === x ? 'active' : ''" ng-repeat="x in
+                   contactsList.range(1,contactsList.totalPages + 1)">
+                     <a>
+                       {{x}}
+                     </a>
+                   </li>
+                   <li class="waves-effect" ng-class="contactsList.currentPage ===
+                   contactsList.totalPages ? 'disabled' : ''"
+                   ng-click="contactsList.changePage(contactsList.currentPage + 1)">
+                     <a>
+                       <i class="material-icons">chevron_right</i>
+                     </a>
+                   </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Done</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end of search panel-->
+    <div ng-show="!contactsList.contacts || contactsList.getLength(contactsList.contacts) === 0">
+      <h6 class="note">Gasp! You have no contacts! Get a life by adding one or two will you?</h6>
+    </div>
+    <div class="row" ng-show="contactsList.contacts && contactsList.getLength(contactsList.contacts) > 0">
+      <ul class="collection col s12">
+
+        <li class="collection-item avatar" ng-repeat="contact in contactsList.contacts">
+          <span class="circle blue-grey initial">{{contact.userName[0].toUpperCase()}}</span>
+          <span class="title">{{contact.userName}}</span>
+          <p>{{contact.name}} <br>
+             <span class="status">~ {{contact.status ? contact.status : 'no status'}} ~</span>
+          </p>
+          <a href="#!" class="secondary-content tooltipped" data-delay="10" data-tooltip="Begin Conversation" data-position="left" ng-click="contactsList.beginConversation(contact.userName)"><i class="material-icons">chat</i></a>
+          <a href="#!" class="third-content tooltipped" data-delay="10" data-tooltip="Delete Contact" data-position="left" ng-click="contactsList.deleteContacts(contact.userName)"><i class="material-icons">delete_forever</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

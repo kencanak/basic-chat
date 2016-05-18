@@ -1,0 +1,43 @@
+<div class="row" ng-show="messageConsole.getLength(messageConsole.currentConversation) === 0">
+  <h6 class="note">No active conversations found...</h6>
+</div>
+<div class="row" ng-show="messageConsole.getLength(messageConsole.currentConversation) > 0">
+  <div class="col s2">
+    <ul class="collection recent-message-list">
+      <li class="collection-item avatar" ng-repeat="message in messageConsole.currentConversation" ng-click="messageConsole.loadSelectedConversation(message.roomId)">
+        <span class="circle blue-grey initial tooltipped" data-delay="10" data-tooltip="{{message.recipient}}" data-position="right">{{message.recipient[0].toUpperCase()}}</span>
+        <span class="circle new" ng-show="message.unread"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="col s10">
+    <div class="message-console">
+      <div class="message-recipients">
+        <p>
+          <span class="circle blue-grey initial">{{messageConsole.chatDetails.recipient[0].toUpperCase()}}</span>
+          {{messageConsole.chatDetails.recipient}}
+        </p>
+      </div>
+      <div class="message-room">
+        <div class="message-content-wrapper" id="message-content-wrapper" scroll-bottom="messageConsole.chatDetails.conversations">
+          <div ng-repeat="messageContent in messageConsole.chatDetails.conversations  track by $index" class="message-row"  ng-class="{{messageContent.author === messageConsole.Auth.getCurrentUser().userName}} ? 'sender-message' : 'recipient-message'">
+            <span class="circle blue-grey initial" ng-show="messageContent.author !== messageConsole.Auth.getCurrentUser().userName">{{messageConsole.chatDetails.recipient[0].toUpperCase()}}</span>
+            <p class="message-content">{{messageContent.content}}</p>
+            <p class="message-content-time">{{messageConsole.formatDate(messageContent.timestamp)}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col s12 message-sender">
+        <div class="col s10">
+          <textarea id="message" name="message" ng-model="messageConsole.message" rows="8" length="1000"></textarea>
+        </div>
+        <div class="col s2">
+          <button class="btn waves-effect waves-light" ng-click="messageConsole.sendMessage()">
+            <i class="material-icons center">email</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

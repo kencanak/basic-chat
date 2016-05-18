@@ -1,0 +1,33 @@
+<form class="col s12 login-form" name="login" ng-submit="loginForm.login(login)">
+  <h5>Login</h5>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input id="icon_userName" name="userName" type="text" class="validate" ng-model="loginForm.user.userName" required>
+      <label for="icon_userName">User Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">vpn_key</i>
+      <input id="icon_password" name="password" ng-model="loginForm.user.password" type="password" class="validate" required>
+      <label for="icon_password">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+    </div>
+  </div>
+  <div class="row notes">
+    <div class="form-group has-error col s12">
+      <p class="note" ng-show="form.userName.$error.required && form.password.$error.required && loginForm.submitted">
+         Please enter your user name and password.
+      </p>
+      <p class="note">{{ loginForm.errors.other }}</p>
+    </div>
+  </div>
+  <div class="row right">
+    <button class="btn waves-effect waves-light" type="submit">Login</button>
+  </div>
+
+</form>

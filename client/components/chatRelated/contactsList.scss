@@ -1,0 +1,109 @@
+h6{
+  font-size: 14px !important;
+}
+.contactsList
+{
+  .row
+  {
+    &:first-child
+    {
+      margin-top: 20px;
+    }
+  }
+
+  .collection-item
+  {
+    .initial
+    {
+      color: #fff;
+      text-align: center;
+      line-height: 42px;
+      font-size: 21px;
+    }
+
+    .status
+    {
+      color: $subTextColor;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .third-content
+    {
+      position: absolute;
+      top: 45px;
+      right: 16px;
+
+      i{
+        font-size: 27px;
+        color: $noteColor;
+      }
+    }
+  }
+}
+#addContactModal
+{
+  .row
+  {
+    margin-bottom: 0px;
+  }
+
+  td, th
+  {
+    padding: 5px;
+  }
+  .btn-floating
+  {
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    i{
+      line-height: 27px;
+      font-size: 18px;
+    }
+  }
+
+  .note
+  {
+    font-style: italic;
+    margin-right: 10px;
+  }
+
+  .search-res
+  {
+    min-height: 217px;
+  }
+
+  .modal-content
+  {
+    overflow: hidden;
+  }
+
+  .pagination-container
+  {
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+
+    li
+    {
+      font-size: 12px;
+    }
+
+
+    .active
+    {
+      background-color: #37474f;
+    }
+  }
+
+  .btn
+  {
+    margin-top: 15px;
+  }
+}
+#toast-container {
+  .toast{
+    border-top: 3px solid #1de9b6;
+  }
+}

@@ -1,0 +1,129 @@
+
+<div class="container">
+
+  <div class="row">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">
+          <span>
+            Bonjour, {{chatRoom.getCurrentUser().name}}
+          </span><br/>
+          <span class="status">
+            ~ {{chatRoom.userStatus ? chatRoom.userStatus : 'no status'}} ~
+          </span>
+        </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="modal-trigger" href="#updateStatusModal">Update Status</a></li>
+          <li><a class="modal-trigger" href="#changePasswordModal">Change Password</a></li>
+          <li><a ui-sref="logout">Logout</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a class="modal-trigger" href="#updateStatusModal">Update Status</a></li>
+          <li><a class="modal-trigger" href="#changePasswordModal">Change Password</a></li>
+          <li><a ui-sref="logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+  <!-- Update Status Modal Structure -->
+  <div id="updateStatusModal" class="modal">
+    <div class="modal-content">
+      <h5>Update Status</h5>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field">
+            <i class="material-icons prefix">face</i>
+            <input id="search" placeholder="How's your mood today?" name="search"
+            ng-model="chatRoom.userStatus" required>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat "
+        ng-model="chatRoom.userStatus" ng-click="chatRoom.updateStatus()">Save</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+
+    </div>
+  </div>
+  <!-- end of Update Status Modal Structure -->
+  <!-- Change Password Modal Structure -->
+  <div id="changePasswordModal" class="modal modal-fixed-footer">
+    <form class="form" name="form" novalidate>
+      <div class="modal-content">
+        <h5>Update Status</h5>
+
+        <div class="row">
+          <div class="col s12">
+            <div class="input-field">
+              <i class="material-icons prefix">vpn_key</i>
+              <input id="icon_password" name="oldPassword" ng-model="chatRoom.user.oldPassword" type="password" class="validate" required>
+              <label for="icon_password">Old password</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <div class="input-field">
+              <i class="material-icons prefix">vpn_key</i>
+              <input id="icon_password" name="newPassword" ng-model="chatRoom.user.newPassword"
+              type="password" class="validate" required ng-minlength="3">
+              <label for="icon_password">New password</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <div class="input-field">
+              <i class="material-icons prefix">vpn_key</i>
+              <input id="icon_password" name="confirmPassword"
+              ng-model="chatRoom.user.confirmPassword" type="password" class="validate" required
+              ng-minlength="3" match="chatRoom.user.newPassword">
+              <label for="icon_password">Confirm new password</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <p class="note"
+             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty)">
+              Password must be at least 3 characters.
+            </p>
+            <p class="note"
+               ng-show="form.confirmPassword.$error.match">
+              Passwords must match.
+            </p>
+            <p class="note" ng-show="chatRoom.errors">
+                {{ chatRoom.errors }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action waves-effect waves-green btn-flat "
+          ng-model="chatRoom.userStatus" ng-click="chatRoom.changePassword(form)">Save</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+
+      </div>
+    </form>
+  </div>
+  <!-- end of Change Password Modal Structure -->
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#contactsList"><i class="material-icons">perm_contact_calendar</i> Contacts</a></li>
+        <li class="tab col s3"><a href="#chats"><i class="material-icons">forum</i> Chats</a> <span class="circle notification" ng-show="chatRoom.newMessage"><i class="material-icons">notifications_active</i></span></li>
+      </ul>
+    </div>
+    <div id="contactsList" class="col s12">
+      <contacts-list></contacts-list>
+    </div>
+    <div id="chats" class="col s12">
+      <message-console></message-console>
+    </div>
+  </div>
+</div>
