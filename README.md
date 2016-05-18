@@ -1,8 +1,24 @@
-# workspace
+# chat-app
 
 1. This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.6.0.
 
 2. This is just another mediocre chat app, building this just for learning Socket.io and getting familiar with AngularJS even more.
+
+# Things to do
+
+1. Proper unread message notification
+
+2. Block user
+
+3. Contact request approval
+
+4. Group chat
+
+5. Broadcast typing activity
+
+6. Send file?
+
+7. Update avatar
 
 ## Getting Started
 
