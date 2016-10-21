@@ -71,7 +71,7 @@ export default function(socketio) {
     });
 
     socket.on('test', function(){
-      socket.log("fucking test emit message");
+      socket.log("test emit message");
     });
 
     socket.on('Join Rooms', function(param){
